@@ -1,0 +1,19 @@
+{
+    "name": "Gauntletrunner2025.Capstone",
+    "rootNamespace": "",
+    "references": [
+        "GUID:734d92eba21c94caba915361bd5ac177",
+        "GUID:e0cd26848372d4e5c891c569017e11f1",
+        "GUID:3c0615e7f0dd57543bf8cb1f3db750e6",
+        "GUID:f173dd28be520a4448fa786ef7e4906d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

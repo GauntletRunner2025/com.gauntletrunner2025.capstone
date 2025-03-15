@@ -1,0 +1,11 @@
+{
+    "name": "Gauntletrunner2025.Capstone.Tests",
+    "references": [
+        "Gauntletrunner2025.Capstone"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": []
+}

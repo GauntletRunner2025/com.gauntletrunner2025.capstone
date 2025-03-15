@@ -1,0 +1,101 @@
+.chat-container {
+    flex-grow: 1;
+    padding: 20px;
+    align-items: stretch;
+    justify-content: flex-start;
+    background-color: rgb(24, 24, 28);
+}
+
+.welcome-text {
+    font-size: 32px;
+    -unity-font-style: bold;
+    margin-bottom: 20px;
+    color: rgb(255, 255, 255);
+    -unity-text-align: upper-center;
+    width: 100%;
+    white-space: normal;
+    flex-wrap: wrap;
+}
+
+.chat-history {
+    flex-grow: 1;
+    margin-bottom: 20px;
+    background-color: rgb(32, 32, 36);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.message-container {
+    width: 100%;
+    margin-bottom: 12px;
+    flex-direction: row;
+}
+
+.message-text {
+    color: rgb(255, 255, 255);
+    padding: 10px 16px;
+    border-radius: 16px;
+    max-width: 70%;
+    white-space: normal;
+    font-size: 14px;
+}
+
+.incoming {
+    justify-content: flex-start;
+}
+
+.incoming .message-text {
+    background-color: rgb(45, 45, 50);
+    border-bottom-left-radius: 4px;
+}
+
+.outgoing {
+    justify-content: flex-end;
+}
+
+.outgoing .message-text {
+    background-color: rgb(59, 130, 246);
+    border-bottom-right-radius: 4px;
+}
+
+.input-area {
+    flex-direction: row;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.chat-input {
+    height: 40px;
+    width: 100%;
+    background-color: rgb(39, 39, 44);
+    border-width: 0;
+    color: rgb(229, 229, 235);
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    -unity-text-overflow-position: middle;
+    -unity-slice-left: 0;
+    -unity-slice-right: 0;
+    -unity-slice-top: 0;
+    -unity-slice-bottom: 0;
+}
+
+.chat-input:focus {
+    background-color: rgb(45, 45, 50);
+}
+
+.chat-input > TextInput {
+    padding: 0;
+    margin: 0;
+}
+
+.chat-input > TextInput > TextElement {
+    padding: 4px 8px;
+    margin: 0;
+}
+
+.chat-input TextField:disabled {
+    color: rgb(160, 160, 170);
+    background-color: rgb(35, 35, 40);
+}

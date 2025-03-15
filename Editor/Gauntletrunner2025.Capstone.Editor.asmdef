@@ -1,0 +1,19 @@
+{
+    "name": "Gauntletrunner2025.Capstone.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Gauntletrunner2025.Capstone",
+        "Gauntletrunner2025.Ui"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

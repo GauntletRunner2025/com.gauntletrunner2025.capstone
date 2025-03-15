@@ -1,0 +1,29 @@
+{
+    "name": "Gauntletrunner2025.Capstone.Editor.Tests",
+    "rootNamespace": "",
+    "references": [
+        "Gauntletrunner2025.Capstone.Editor",
+        "Gauntletrunner2025.Capstone",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "Unity.Entities",
+        "Unity.Collections",
+        "Gauntletrunner2025.Consensus"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll",
+        "Newtonsoft.Json.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
