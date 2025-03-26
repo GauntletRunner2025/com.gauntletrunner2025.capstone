@@ -1,0 +1,201 @@
+{
+    "rounds": [
+        {
+            "features": [
+                "Create Dough entities from ingredients",
+                "Track baking of Dough to produce baked goods",
+                "Allow goods to be sold to customers"
+            ],
+            "roundNumber": 1
+        },
+        {
+            "features": [
+                "Add additional ingredients and recipes",
+                "Expand on store management (money tracking, customer satisfaction)",
+                "Implement cleaning and restocking systems"
+            ],
+            "roundNumber": 2
+        }
+    ],
+    "systems": [
+        {
+            "systemName": "DoughCreationSystem",
+            "endingArchetype": "Dough",
+            "beginningArchetype": "UnmixedIngredients",
+            "transformationRole": "Transforms UnmixedIngredients into Dough by adding and removing components related to mixing"
+        },
+        {
+            "systemName": "KneadSystem",
+            "endingArchetype": "KneadedDough",
+            "beginningArchetype": "Dough",
+            "transformationRole": "Adds the IsKneaded component once dough is kneaded"
+        },
+        {
+            "systemName": "BakeSystem",
+            "endingArchetype": "BakedGood",
+            "beginningArchetype": "KneadedDough",
+            "transformationRole": "Removes kneaded dough components and replaces them with BakedGood indicators"
+        },
+        {
+            "systemName": "SellSystem",
+            "endingArchetype": "SoldGood",
+            "beginningArchetype": "BakedGood",
+            "transformationRole": "Removes BakedGood components and marks the item as Sold, adjusting player or bakery inventory and money"
+        },
+        {
+            "systemName": "CustomerArrivalSystem",
+            "endingArchetype": "CustomerAwaitingService",
+            "beginningArchetype": "Customer",
+            "transformationRole": "Tracks incoming customers by adding an AwaitingService tag"
+        },
+        {
+            "systemName": "CustomerDepartureSystem",
+            "endingArchetype": "CustomerDeparted",
+            "beginningArchetype": "CustomerAwaitingService",
+            "transformationRole": "Removes the awaiting service tag and either marks them as satisfied or unsatisfied"
+        }
+    ],
+    "analysis": "To model a bakery sim via ECS, we treat every interactive entity as an archetype having the relevant tag or value components indicating its state. For example, dough ready to bake vs. dough that has been mixed, or a customer waiting vs. one who is departing. Systems transform entities by editing or swapping their archetypes based on conditions (e.g., if the dough is kneaded, or if a customer has been served). This separation of data (components) from logic (systems) allows each feature to be testable by isolating changes to query, add, and remove components as required.",
+    "archetypes": [
+        {
+            "components": [
+                "IsUnmixedIngredient",
+                "IngredientType",
+                "Quantity"
+            ],
+            "archetypeName": "UnmixedIngredients"
+        },
+        {
+            "components": [
+                "Flour",
+                "Water",
+                "Yeast",
+                "IsDough"
+            ],
+            "archetypeName": "Dough"
+        },
+        {
+            "components": [
+                "Flour",
+                "Water",
+                "Yeast",
+                "IsDough",
+                "IsKneaded"
+            ],
+            "archetypeName": "KneadedDough"
+        },
+        {
+            "components": [
+                "ProductType",
+                "IsBaked",
+                "Quality"
+            ],
+            "archetypeName": "BakedGood"
+        },
+        {
+            "components": [
+                "ProductType",
+                "IsBaked",
+                "Quality",
+                "IsSold"
+            ],
+            "archetypeName": "SoldGood"
+        },
+        {
+            "components": [
+                "IsCustomer",
+                "Money",
+                "CustomerMood"
+            ],
+            "archetypeName": "Customer"
+        },
+        {
+            "components": [
+                "IsCustomer",
+                "Money",
+                "CustomerMood",
+                "AwaitingService"
+            ],
+            "archetypeName": "CustomerAwaitingService"
+        },
+        {
+            "components": [
+                "IsCustomer",
+                "Money",
+                "CustomerMood",
+                "HasDeparted"
+            ],
+            "archetypeName": "CustomerDeparted"
+        }
+    ],
+    "components": [
+        {
+            "name": "IsUnmixedIngredient",
+            "valueType": "none"
+        },
+        {
+            "name": "IngredientType",
+            "valueType": "string"
+        },
+        {
+            "name": "Quantity",
+            "valueType": "float"
+        },
+        {
+            "name": "IsDough",
+            "valueType": "none"
+        },
+        {
+            "name": "Flour",
+            "valueType": "float"
+        },
+        {
+            "name": "Water",
+            "valueType": "float"
+        },
+        {
+            "name": "Yeast",
+            "valueType": "float"
+        },
+        {
+            "name": "IsKneaded",
+            "valueType": "none"
+        },
+        {
+            "name": "ProductType",
+            "valueType": "string"
+        },
+        {
+            "name": "IsBaked",
+            "valueType": "none"
+        },
+        {
+            "name": "Quality",
+            "valueType": "int"
+        },
+        {
+            "name": "IsSold",
+            "valueType": "none"
+        },
+        {
+            "name": "IsCustomer",
+            "valueType": "none"
+        },
+        {
+            "name": "Money",
+            "valueType": "float"
+        },
+        {
+            "name": "CustomerMood",
+            "valueType": "string"
+        },
+        {
+            "name": "AwaitingService",
+            "valueType": "none"
+        },
+        {
+            "name": "HasDeparted",
+            "valueType": "none"
+        }
+    ]
+}

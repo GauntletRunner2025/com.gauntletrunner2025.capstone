@@ -1,0 +1,134 @@
+{
+    "name": "ecs_project_requirements",
+    "strict": true,
+    "schema": {
+        "type": "object",
+        "required": [
+            "analysis",
+            "components",
+            "archetypes",
+            "systems",
+            "rounds"
+        ],
+        "properties": {
+            "rounds": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "required": [
+                        "roundNumber",
+                        "features"
+                    ],
+                    "properties": {
+                        "features": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "description": "Feature description."
+                            },
+                            "description": "Features associated with this round."
+                        },
+                        "roundNumber": {
+                            "type": "integer",
+                            "description": "The number of the round."
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "description": "Implementation will occur in rounds, where each round is a collection of features."
+            },
+            "systems": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "required": [
+                        "systemName",
+                        "beginningArchetype",
+                        "endingArchetype",
+                        "transformationRole"
+                    ],
+                    "properties": {
+                        "systemName": {
+                            "type": "string",
+                            "description": "The name of the system."
+                        },
+                        "endingArchetype": {
+                            "type": "string",
+                            "description": "The final archetype after transformation."
+                        },
+                        "beginningArchetype": {
+                            "type": "string",
+                            "description": "The initial archetype before transformation."
+                        },
+                        "transformationRole": {
+                            "type": "string",
+                            "description": "Description of how this system transforms an entity between archetypes."
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "description": "List of systems and how they transition entities from one archetype to another."
+            },
+            "analysis": {
+                "type": "string",
+                "description": "Analysis of how the project requirements document should be approached from an Entity-Component-System (ECS) perspective."
+            },
+            "archetypes": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "required": [
+                        "archetypeName",
+                        "components"
+                    ],
+                    "properties": {
+                        "components": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "description": "Name of the component."
+                            },
+                            "description": "Components that this archetype consists of."
+                        },
+                        "archetypeName": {
+                            "type": "string",
+                            "description": "The name of the archetype."
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "description": "List of archetypes and what components they're comprised of."
+            },
+            "components": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "required": [
+                        "name",
+                        "valueType"
+                    ],
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The name of the component."
+                        },
+                        "valueType": {
+                            "enum": [
+                                "none",
+                                "bool",
+                                "int",
+                                "float",
+                                "string"
+                            ],
+                            "type": "string",
+                            "description": "The type of value that this component can hold."
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "description": "List of components necessary to express the program."
+            }
+        },
+        "additionalProperties": false
+    }
+}
